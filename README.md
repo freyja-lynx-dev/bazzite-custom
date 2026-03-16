@@ -1,4 +1,11 @@
-# image-template
+# Freyja's Bazzite 
+
+This is a thin modification of the Bazzite image that currently only adds
+a /nix folder for compatiblity with the Nix package manager. Might end up
+adding more stuff to the image over time if it doesn't install well over Nix
+or Flatpak.
+
+## Original image-template readme below
 
 This repository is meant to be a template for building your own custom [bootc](https://github.com/bootc-dev/bootc) image. This template is the recommended way to make customizations to any image published by the Universal Blue Project.
 

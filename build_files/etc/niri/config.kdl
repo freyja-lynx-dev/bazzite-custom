@@ -159,11 +159,7 @@ binds {
     XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
-    XF86TouchpadToggle repeat=false { toggle-touchpad; }
-
-    Mod {
-        release { toggle-overview; }
-    }
+    Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
     Alt+F4 repeat=false { close-window; }

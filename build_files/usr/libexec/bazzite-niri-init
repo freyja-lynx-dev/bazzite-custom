@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# Seed Niri configuration if missing
+mkdir -p "$CONFIG_HOME/niri"
+if [ ! -f "$CONFIG_HOME/niri/config.kdl" ] && [ -f /etc/niri/config.kdl ]; then
+    cp -a /etc/niri/config.kdl "$CONFIG_HOME/niri/config.kdl"
+fi
+if [ ! -f "$CONFIG_HOME/niri/noctalia.kdl" ] && [ -f /etc/niri/noctalia.kdl ]; then
+    cp -a /etc/niri/noctalia.kdl "$CONFIG_HOME/niri/noctalia.kdl"
+fi
+
+# Seed Noctalia configuration if no user *.toml files exist yet
+mkdir -p "$CONFIG_HOME/noctalia"
+if ! compgen -G "$CONFIG_HOME/noctalia/*.toml" >/dev/null && [ -f /etc/xdg/noctalia/config.toml ]; then
+    cp -a /etc/xdg/noctalia/config.toml "$CONFIG_HOME/noctalia/config.toml"
+fi
+
+# Seed Ghostty configuration and theme if missing
+mkdir -p "$CONFIG_HOME/ghostty/themes"
+if [ ! -f "$CONFIG_HOME/ghostty/config" ] && [ ! -f "$CONFIG_HOME/ghostty/config.ghostty" ] && [ -f /etc/xdg/ghostty/config ]; then
+    cp -a /etc/xdg/ghostty/config "$CONFIG_HOME/ghostty/config"
+fi
+if [ ! -f "$CONFIG_HOME/ghostty/themes/noctalia" ] && [ -f /etc/xdg/ghostty/themes/noctalia ]; then
+    cp -a /etc/xdg/ghostty/themes/noctalia "$CONFIG_HOME/ghostty/themes/noctalia"
+fi

@@ -1,0 +1,21 @@
+# Noctalia v5 configuration - Rosé Pine Dawn
+# Documentation: https://docs.noctalia.dev/
+
+[theme]
+mode = "light"
+shell_mode = "follow"
+source = "builtin"
+builtin = "Rosé Pine"
+sync_color_scheme = true
+
+[theme.templates]
+enable_builtin_templates = true
+builtin_ids = [
+  "niri",
+  "gtk3",
+  "gtk4",
+  "ghostty",
+]
+
+[backdrop]
+enabled = true

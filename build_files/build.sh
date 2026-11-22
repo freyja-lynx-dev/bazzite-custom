@@ -9,6 +9,7 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+
 # Install packages from Fedora repos (keeping GNOME intact as fallback)
 dnf5 install -y \
     darktable \
@@ -16,12 +17,18 @@ dnf5 install -y \
     gutenprint-cups \
     niri \
     noctalia \
-    adw-gtk3-theme
+    adw-gtk3-theme \
+    
 
 # Install Ghostty from COPR and disable COPR afterwards so it doesn't stay enabled on the final image
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y install ghostty
 dnf5 -y copr disable scottames/ghostty
+
+# Install Ghostty from COPR and disable COPR afterwards so it doesn't stay enabled on the final image
+dnf5 -y copr enable imput/helium
+dnf5 -y install helium-bin
+dnf5 -y copr disable imput/helium
 
 ### Install Niri, Noctalia, and Ghostty default configurations (Rosé Pine Dawn)
 

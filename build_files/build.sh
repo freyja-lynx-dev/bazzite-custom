@@ -25,11 +25,6 @@ dnf5 -y copr enable scottames/ghostty
 dnf5 -y install ghostty
 dnf5 -y copr disable scottames/ghostty
 
-# Install Ghostty from COPR and disable COPR afterwards so it doesn't stay enabled on the final image
-dnf5 -y copr enable imput/helium
-dnf5 -y install helium-bin
-dnf5 -y copr disable imput/helium
-
 ### Install Niri, Noctalia, and Ghostty default configurations (Rosé Pine Dawn)
 
 cp -rv /ctx/etc/. /etc/
